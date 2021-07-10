@@ -1,3 +1,5 @@
+
+//Adding Incoming Call Dialog to Client Side
 export const getIncomingCallDialog = (
   callTypeInfo,
   acceptCallHandler,
@@ -10,10 +12,12 @@ export const getIncomingCallDialog = (
   dialogContent.classList.add("dialog_content");
   dialog.appendChild(dialogContent);
 
+  //Title of the dialog
   const title = document.createElement("p");
   title.classList.add("dialog_title");
   title.innerHTML = `Incoming ${callTypeInfo} Call`;
 
+  //User Avatar on Dialogs
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("dialog_image_container");
   const image = document.createElement("img");
@@ -24,20 +28,20 @@ export const getIncomingCallDialog = (
   const buttonContainer = document.createElement("div");
   buttonContainer.classList.add("dialog_button_container");
 
-  const acceptCallButton = document.createElement("button");
-  acceptCallButton.classList.add("dialog_accept_call_button");
+  const acceptCallButton = document.createElement("button");  //Accept Button
+  acceptCallButton.classList.add("dialog_accept_call_button"); 
   const acceptCallImg = document.createElement("img");
   acceptCallImg.classList.add("dialog_button_image");
-  const acceptCallImgPath = "./utils/images/acceptCall.png";
+  const acceptCallImgPath = "./utils/images/acceptCall.png"; //Accept Button Image
   acceptCallImg.src = acceptCallImgPath;
   acceptCallButton.append(acceptCallImg);
   buttonContainer.appendChild(acceptCallButton);
 
-  const rejectCallButton = document.createElement("button");
+  const rejectCallButton = document.createElement("button");  //Reject Button
   rejectCallButton.classList.add("dialog_reject_call_button");
   const rejectCallImg = document.createElement("img");
   rejectCallImg.classList.add("dialog_button_image");
-  const rejectCallImgPath = "./utils/images/rejectCall.png";
+  const rejectCallImgPath = "./utils/images/rejectCall.png"; //reject Button Image
   rejectCallImg.src = rejectCallImgPath;
   rejectCallButton.append(rejectCallImg);
   buttonContainer.appendChild(rejectCallButton);
@@ -57,6 +61,7 @@ export const getIncomingCallDialog = (
   return dialog;
 };
 
+//Calling Dialog to Caller
 export const getCallingDialog = (rejectCallHandler) => {
   const dialog = document.createElement("div");
   dialog.classList.add("dialog_wrapper");
@@ -79,7 +84,7 @@ export const getCallingDialog = (rejectCallHandler) => {
   buttonContainer.classList.add("dialog_button_container");
 
   const hangUpCallButton = document.createElement("button");
-  hangUpCallButton.classList.add("dialog_reject_call_button");
+  hangUpCallButton.classList.add("dialog_reject_call_button");  ////Reject Button
   const hangUpCallImg = document.createElement("img");
   hangUpCallImg.classList.add("dialog_button_image");
   const rejectCallImgPath = "./utils/images/rejectCall.png";
@@ -91,9 +96,14 @@ export const getCallingDialog = (rejectCallHandler) => {
   dialogContent.appendChild(imageContainer);
   dialogContent.appendChild(buttonContainer);
 
+  hangUpCallButton.addEventListener('click',() => {
+    rejectCallHandler();
+  });
+
   return dialog;
 };
 
+//Adding Info to dialog
 export const getInfoDialog = (dialogTitle, dialogDescription) => {
   const dialog = document.createElement("div");
   dialog.classList.add("dialog_wrapper");
@@ -108,7 +118,7 @@ export const getInfoDialog = (dialogTitle, dialogDescription) => {
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("dialog_image_container");
   const image = document.createElement("img");
-  const avatarImagePath = "./utils/images/dialogAvatar.png";
+  const avatarImagePath = "./utils/images/dialogAvatar.png"; //User Avatar Image
   image.src = avatarImagePath;
   imageContainer.appendChild(image);
 
@@ -123,6 +133,7 @@ export const getInfoDialog = (dialogTitle, dialogDescription) => {
   return dialog;
 };
 
+//Left Message i.e Recieved Message
 export const getLeftMessage = (message) => {
   const messageContainer = document.createElement("div");
   messageContainer.classList.add("message_left_container");
@@ -134,6 +145,7 @@ export const getLeftMessage = (message) => {
   return messageContainer;
 };
 
+//Right Message i.e Sent Messages
 export const getRightMessage = (message) => {
   const messageContainer = document.createElement("div");
   messageContainer.classList.add("message_right_container");

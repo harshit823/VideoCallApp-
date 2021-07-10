@@ -1,11 +1,16 @@
+import * as constants from './constants.js';
+
+//initial state
 let state = {
   socketId: null,
   localStream: null,
   remoteStream: null,
   screenSharingActive: false,
   screenSharingStream: null,
+  callState: constants.callState.CALL_AVAILABLE_ONLY_CHAT,
 };
 
+//setting socket id
 export const setSocketId = (socketId) => {
   state = {
     ...state,
@@ -14,6 +19,7 @@ export const setSocketId = (socketId) => {
   console.log(state);
 };
 
+//setting local stream in store
 export const setLocalStream = (stream) => {
   state = {
     ...state,
@@ -21,7 +27,7 @@ export const setLocalStream = (stream) => {
   };
 };
 
-
+//setting screen sharing
 export const setScreenSharingActive = (screenSharingActive) => {
   state = {
     ...state,
@@ -29,6 +35,8 @@ export const setScreenSharingActive = (screenSharingActive) => {
   };
 };
 
+
+//setting screen sharing stream in store
 export const setScreenSharingStream = (stream) => {
   state = {
     ...state,
@@ -36,6 +44,7 @@ export const setScreenSharingStream = (stream) => {
   };
 };
 
+//setting remote tream
 export const setRemoteStream = (stream) => {
   state = {
     ...state,
@@ -43,6 +52,15 @@ export const setRemoteStream = (stream) => {
   };
 };
 
+//setting call state
+export const setCallState = (callState) => {
+  state = {
+    ...state,
+    callState,
+  }
+}
+
+//this function let us get the state z
 export const getState = () => {
   return state;
 };
