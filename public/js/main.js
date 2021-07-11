@@ -175,6 +175,12 @@ clearMessages.addEventListener('click',()=>{
   ui.clearMessenger();
 });
 
+const clearMessage =document.getElementById('clear_messages_button_chat');
+clearMessage.addEventListener('click',()=>{
+  ui.clearMessenger();
+});
+
+
 //switch from chat to video 
 const switchVideoCallButton= document.getElementById('switch_video_call');
 switchVideoCallButton.addEventListener('click',() =>{
