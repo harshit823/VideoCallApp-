@@ -26,6 +26,11 @@ For Icons I used
 https://iconfinder.com
 
 
+# Things to consider while Using Video Call App     
+1.Grant permission for camera and microphone.      
+2.Keep Zoom to 100%.
+
+
 
 
 
